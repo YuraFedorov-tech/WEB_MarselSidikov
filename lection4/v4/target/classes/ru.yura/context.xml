@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="ru.yura"/>
+    <bean id="independantRenderer" class="ru.yura.IndependentMessageRenderer">
+    </bean>
+
+
+    <bean id="renderer" class="ru.yura.MessageRendererStandartImpl">
+        <constructor-arg name="message" ref="message2"/>
+    </bean>
+    <bean id="message1" class="ru.yura.Hello">
+        <constructor-arg name="text" value="sister"/>
+    </bean>
+    <bean id="message2" class="ru.yura.Hello">
+        <constructor-arg name="text" value="brother"/>
+    </bean>
+
+</beans>
